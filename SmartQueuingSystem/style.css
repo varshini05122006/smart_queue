@@ -1,0 +1,1546 @@
+/* =========================================================
+   SMART QUEUING SYSTEM
+   Professional theme: navy and slate neutrals
+   ========================================================= */
+
+:root {
+    --navy: #14213d;
+    --navy-soft: #1f3157;
+    --slate: #475569;
+    --ink: #1e293b;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --surface: #ffffff;
+    --page: #f4f6f9;
+    --tint: #f8fafc;
+    --accent: #b8975a;
+    --danger: #9b2c2c;
+    --danger-dark: #7f1d1d;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--page);
+    color: var(--ink);
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------- Header ---------- */
+
+header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color: #fff;
+    text-align: center;
+    padding: 34px 20px 30px;
+    border-bottom: 3px solid var(--accent);
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+
+header p {
+    font-size: 15px;
+    color: #cbd5e1;
+    letter-spacing: 0.02em;
+}
+
+.logout-link {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 7px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 6px;
+    color: #fff;
+    background: transparent;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, color 0.2s;
+}
+
+.logout-link:hover {
+    background: #fff;
+    color: var(--navy);
+}
+
+
+/* ---------- Layout ---------- */
+
+main {
+    max-width: 820px;
+    margin: 36px auto;
+    padding: 0 20px;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.welcome h2 {
+    margin-bottom: 8px;
+    color: var(--navy);
+}
+
+
+/* ---------- Cards ---------- */
+
+.queue-box,
+.token-box {
+    background: var(--surface);
+    padding: 28px 30px;
+    margin-bottom: 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
+                0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.queue-box h2,
+.token-box h2 {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--slate);
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* ---------- Form controls ---------- */
+
+select,
+#personName {
+    width: 100%;
+    padding: 13px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus,
+#personName:focus,
+.login-wrapper input:focus {
+    outline: none;
+    border-color: var(--navy-soft);
+    box-shadow: 0 0 0 3px rgba(31, 49, 87, 0.15);
+}
+
+.priority-option {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.priority-option label {
+    font-size: 15px;
+    color: var(--slate);
+    cursor: pointer;
+}
+
+.priority-option input {
+    margin-right: 8px;
+    width: 17px;
+    height: 17px;
+    vertical-align: -3px;
+    accent-color: var(--navy);
+}
+
+
+/* ---------- Buttons ---------- */
+
+button {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: #fff;
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+button:hover {
+    background: var(--navy-soft);
+    box-shadow: 0 4px 12px rgba(20, 33, 61, 0.25);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Buttons inside links become secondary (outlined) */
+
+.queue-box a,
+.staff-dashboard a {
+    display: block;
+    text-decoration: none;
+}
+
+.queue-box a button,
+.staff-dashboard a button {
+    margin-top: 10px;
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid #94a3b8;
+}
+
+.queue-box a button:hover,
+.staff-dashboard a button:hover {
+    background: var(--tint);
+    border-color: var(--navy);
+    box-shadow: none;
+}
+
+/* Destructive buttons: outlined red */
+
+.clear-btn {
+    margin-top: 14px;
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.clear-btn:hover {
+    background: var(--danger);
+    color: #fff;
+    box-shadow: none;
+}
+
+.staff-dashboard button {
+    margin-bottom: 10px;
+}
+
+
+/* ---------- Your token (ticket style) ---------- */
+
+.token-box {
+    text-align: center;
+    border-top: 4px solid var(--navy);
+}
+
+#tokenNumber {
+    font-size: 54px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+    margin: 6px 0 18px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #cbd5e1;
+}
+
+#tokenPersonName,
+#staffCurrentName {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 10px;
+}
+
+.token-box p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: var(--slate);
+}
+
+.token-box p span {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* Status shown as a badge */
+
+#status {
+    display: inline-block;
+    padding: 3px 14px;
+    border-radius: 999px;
+    background: #e8edf5;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+
+/* ---------- Queue items ---------- */
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: var(--tint);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--navy);
+    border-radius: 10px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.queue-item:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.queue-item strong {
+    font-size: 19px;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+}
+
+.queue-item span {
+    font-size: 14px;
+    color: var(--slate);
+}
+
+.queue-item small {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.queue-token {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 130px;
+}
+
+
+/* ---------- My Tokens cards ---------- */
+
+#myTokensList .queue-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 12px;
+    row-gap: 6px;
+    align-items: center;
+}
+
+#myTokensList .queue-item strong {
+    grid-column: 1;
+    font-size: 21px;
+}
+
+#myTokensList .queue-item span:nth-of-type(1) {
+    grid-column: 2;
+    text-align: right;
+    font-weight: 600;
+    color: var(--slate);
+}
+
+#myTokensList .queue-item small {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+#myTokensList .queue-item span:nth-of-type(n+2) {
+    grid-column: 1 / -1;
+    text-align: left;
+    color: var(--slate);
+}
+
+#myTokensList .queue-item span:nth-of-type(2) {
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+}
+
+#myTokensList + button,
+#myTokensList ~ a {
+    margin-top: 12px;
+}
+
+#queueList h3 {
+    margin: 20px 0 10px;
+    padding-bottom: 8px;
+    color: var(--navy);
+    border-bottom: 1px solid var(--line);
+}
+
+#queueList p {
+    margin-bottom: 10px;
+    color: var(--muted);
+}
+
+
+/* ---------- Statistics ---------- */
+
+.stat-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 8px;
+}
+
+.stat-card {
+    background: var(--tint);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    border-radius: 10px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+
+/* ---------- Staff dashboard ---------- */
+
+.staff-dashboard {
+    text-align: center;
+}
+
+.current-serving {
+    background: var(--tint);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 20px;
+}
+
+.current-serving > p:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.current-serving p {
+    margin-bottom: 8px;
+}
+
+#staffCurrentToken {
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+#staffCurrentService {
+    font-size: 16px;
+    color: var(--slate);
+    margin-bottom: 6px;
+}
+
+#staffCurrentPriority {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 4px;
+}
+
+
+/* ---------- Login page ---------- */
+
+.login-wrapper .queue-box {
+    border-top: 4px solid var(--navy);
+}
+
+.login-wrapper label {
+    color: var(--slate);
+    font-size: 14px;
+}
+
+.login-wrapper input[type="text"],
+.login-wrapper input[type="password"] {
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.error-msg {
+    border-left: 4px solid var(--danger);
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    margin-top: 40px;
+    background: var(--navy);
+    color: #cbd5e1;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    border-top: 3px solid var(--accent);
+}
+
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    .queue-box,
+    .token-box {
+        padding: 20px;
+    }
+
+    .stat-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #tokenNumber {
+        font-size: 42px;
+    }
+
+    #staffCurrentToken {
+        font-size: 38px;
+    }
+}
+/* =========================================================
+   EXTRA DESIGN FEATURES (add at the end of style.css)
+   ========================================================= */
+
+/* Smooth scrolling and text selection */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: var(--navy);
+    color: #fff;
+}
+
+
+/* Slim, neat scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--page);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+/* Keyboard focus ring (accessibility) */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(184, 151, 90, 0.7);
+    outline-offset: 2px;
+}
+
+
+/* Cards fade in when the page loads */
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.queue-box,
+.token-box,
+.welcome {
+    animation: riseIn 0.5s ease both;
+}
+
+main > :nth-child(2) { animation-delay: 0.06s; }
+main > :nth-child(3) { animation-delay: 0.12s; }
+main > :nth-child(4) { animation-delay: 0.18s; }
+main > :nth-child(5) { animation-delay: 0.24s; }
+
+
+/* Live Queue: numbered positions */
+
+#queueList {
+    counter-reset: position;
+}
+
+#queueList .queue-item {
+    counter-increment: position;
+}
+
+#queueList .queue-item::before {
+    content: counter(position);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#queueList .queue-token {
+    flex: 1;
+}
+
+/* The first person in line stands out */
+
+#queueList .queue-item:first-of-type {
+    background: #fffaf0;
+    border-left-color: var(--accent);
+}
+
+#queueList .queue-item:first-of-type::before {
+    background: var(--accent);
+}
+
+/* Service and priority shown as small pills */
+
+#queueList .queue-item span {
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* "Live" pulse next to the Currently Serving label */
+
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(155, 44, 44, 0.45); }
+    70%  { box-shadow: 0 0 0 9px rgba(155, 44, 44, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(155, 44, 44, 0); }
+}
+
+.current-serving > p:first-child::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--danger);
+    animation: pulse 1.8s infinite;
+}
+
+
+/* Ticket look: notches on the sides of the token card */
+
+.token-box {
+    position: relative;
+}
+
+.token-box::before,
+.token-box::after {
+    content: "";
+    position: absolute;
+    top: 120px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--page);
+    border: 1px solid var(--line);
+}
+
+.token-box::before { left: -12px; }
+.token-box::after  { right: -12px; }
+
+
+/* Statistics cards lift when hovered */
+
+.stat-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+}
+
+
+/* Header title: a thin divider under the subtitle */
+
+header p {
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+
+/* Print: only the token slip is printed */
+
+@media print {
+
+    header,
+    footer,
+    button,
+    .logout-link,
+    .queue-box,
+    .welcome {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .token-box {
+        box-shadow: none;
+        border: 2px solid #000;
+        max-width: 420px;
+        margin: 40px auto;
+    }
+
+    .token-box::before,
+    .token-box::after {
+        display: none;
+    }
+}
+
+
+/* Respect users who prefer less motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+/* =========================================================
+   MORE DESIGN FEATURES (add at the end of style.css)
+   ========================================================= */
+
+/* Footer always stays at the bottom of the screen */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+
+/* Subtle pattern on the header */
+
+header {
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.06) 0, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(184, 151, 90, 0.12) 0, transparent 45%),
+        linear-gradient(135deg, var(--navy), var(--navy-soft));
+}
+
+header h1::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 2px;
+    margin: 10px auto 0;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+
+/* Card headings get a small accent bar */
+
+.queue-box h2,
+.token-box h2 {
+    position: relative;
+    padding-left: 14px;
+}
+
+.queue-box h2::before,
+.token-box h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 4px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.staff-dashboard h2,
+.token-box h2 {
+    text-align: left;
+}
+
+
+/* Cards lift slightly on hover */
+
+.queue-box,
+.token-box {
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.queue-box:hover,
+.token-box:hover {
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05),
+                0 14px 32px rgba(15, 23, 42, 0.1);
+}
+
+
+/* Custom dropdown arrow */
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 42px;
+    cursor: pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, var(--slate) 50%),
+        linear-gradient(135deg, var(--slate) 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) 55%,
+        calc(100% - 16px) 55%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+#personName::placeholder,
+.login-wrapper input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Staff action buttons get their own muted colour */
+
+button[onclick*="callNextToken"] {
+    background: var(--navy);
+}
+
+button[onclick*="completeToken"] {
+    background: #2f5d50;
+    border-color: #2f5d50;
+}
+
+button[onclick*="completeToken"]:hover {
+    background: #264c42;
+}
+
+button[onclick*="skipToken"] {
+    background: #8a6d3b;
+    border-color: #8a6d3b;
+}
+
+button[onclick*="skipToken"]:hover {
+    background: #735a31;
+}
+
+
+/* Button shine effect on hover */
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.22),
+        transparent
+    );
+    transform: skewX(-20deg);
+}
+
+button:hover::after {
+    left: 130%;
+    transition: left 0.6s ease;
+}
+
+.clear-btn::after,
+.queue-box a button::after,
+.staff-dashboard a button::after {
+    display: none;
+}
+
+
+/* Statistics: a different accent per card */
+
+.stat-card:nth-child(1) { border-top-color: var(--navy); }
+.stat-card:nth-child(2) { border-top-color: var(--accent); }
+.stat-card:nth-child(3) { border-top-color: #2f5d50; }
+.stat-card:nth-child(4) { border-top-color: #64748b; }
+
+.stat-card h3 {
+    font-size: 36px;
+}
+
+
+/* Status badge becomes a little softer */
+
+#status {
+    border: 1px solid #c7d2e4;
+}
+
+
+/* Token number: fine inner frame */
+
+#tokenNumber {
+    background: linear-gradient(180deg, var(--tint), #fff);
+    border: 1px solid var(--line);
+    border-bottom: 2px dashed #cbd5e1;
+    border-radius: 12px 12px 0 0;
+    padding: 18px 10px 20px;
+}
+
+#staffCurrentToken {
+    display: inline-block;
+    min-width: 200px;
+    padding: 10px 28px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+
+/* Empty-state messages look intentional */
+
+#queueList > p,
+#myTokensList > p {
+    padding: 22px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--tint);
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+}
+
+
+/* Priority rows get a gold edge */
+
+#queueList .queue-item:has(span:last-child:not(:empty)) span:last-child {
+    font-weight: 600;
+}
+
+
+/* Login page: centered card with more presence */
+
+.login-wrapper {
+    margin-top: 48px;
+}
+
+.login-wrapper .queue-box {
+    padding: 36px 34px;
+}
+
+.login-wrapper h2 {
+    font-size: 17px;
+}
+
+.login-wrapper button[type="submit"] {
+    margin-top: 6px;
+    padding: 14px;
+}
+
+
+/* Link color */
+
+a {
+    color: var(--navy-soft);
+}
+
+
+/* Page loading bar at the top (decorative) */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--navy-soft), var(--accent));
+    background-size: 200% 100%;
+    animation: slideBar 6s linear infinite;
+    z-index: 100;
+}
+
+@keyframes slideBar {
+    from { background-position: 0 0; }
+    to   { background-position: 200% 0; }
+}
+
+
+/* Tablets and phones */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    #queueList .queue-item {
+        flex-wrap: wrap;
+    }
+
+    #staffCurrentToken {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .token-box::before,
+    .token-box::after {
+        display: none;
+    }
+}
+/* =========================================================
+   FINISHING TOUCHES (add at the end of style.css)
+   ========================================================= */
+
+/* Sharper text rendering */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Serif title for a more formal, institutional look */
+
+header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+
+/* Long queues scroll inside their own card instead of stretching the page */
+
+#queueList {
+    max-height: 440px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+#myTokensList {
+    max-height: 520px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+
+/* Alternate row tint for easier reading */
+
+#queueList .queue-item:nth-of-type(even) {
+    background: #fff;
+}
+
+#queueList .queue-item:first-of-type {
+    background: #fffaf0;
+}
+
+
+/* Aligned columns in the live queue */
+
+#queueList .queue-item > span:nth-of-type(1) {
+    min-width: 120px;
+    text-align: center;
+}
+
+#queueList .queue-item > span:nth-of-type(2) {
+    min-width: 80px;
+    text-align: center;
+}
+
+
+/* Disabled buttons */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* Error and success messages */
+
+.error-msg {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.info-msg {
+    background: #eef2f7;
+    color: var(--navy);
+    border-left: 4px solid var(--accent);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+
+/* Smaller, tidier header text on the dashboards */
+
+header p {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+}
+
+
+/* Fine ornament in the footer */
+
+footer p::before,
+footer p::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    vertical-align: middle;
+    margin: 0 12px;
+}
+
+
+/* Priority and waiting numbers stay aligned */
+
+.token-box p span,
+.stat-card h3,
+#tokenNumber,
+#staffCurrentToken {
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Soft edge fade at the bottom of scrolling lists */
+
+#queueList,
+#myTokensList {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+
+/* Text inside the token card is easier to scan */
+
+.token-box p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.token-box p:last-of-type {
+    border-bottom: none;
+}
+
+.token-box p#tokenPersonName {
+    justify-content: center;
+    border-bottom: none;
+    padding-bottom: 14px;
+}
+
+
+/* Phones: keep the token card details readable */
+
+@media (max-width: 600px) {
+
+    .token-box p {
+        font-size: 15px;
+    }
+
+    #queueList {
+        max-height: 360px;
+    }
+}
+/* =========================================================
+   NOTIFICATION MESSAGES
+   ========================================================= */
+
+#toastContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 360px;
+    max-width: calc(100vw - 32px);
+}
+
+.toast {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 40px 18px 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--navy);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+    overflow: hidden;
+    animation: toastIn 0.35s ease both;
+}
+
+.toast-hide {
+    animation: toastOut 0.3s ease both;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(40px); }
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--navy);
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+    margin-bottom: 3px;
+}
+
+.toast-text {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink);
+}
+
+.toast-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 22px;
+    line-height: 1;
+    color: #94a3b8;
+    cursor: pointer;
+}
+
+.toast-close:hover {
+    color: var(--ink);
+}
+
+.toast-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: var(--navy);
+    transform-origin: left;
+    animation: toastBar 4.5s linear forwards;
+}
+
+@keyframes toastBar {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+}
+
+/* Types */
+
+.toast-success { border-left-color: #2f5d50; }
+.toast-success .toast-icon,
+.toast-success .toast-bar { background: #2f5d50; }
+
+.toast-error { border-left-color: var(--danger); }
+.toast-error .toast-icon,
+.toast-error .toast-bar { background: var(--danger); }
+
+.toast-warning { border-left-color: #8a6d3b; }
+.toast-warning .toast-icon,
+.toast-warning .toast-bar { background: #8a6d3b; }
+
+/* Phones: full width at the top */
+
+@media (max-width: 600px) {
+
+    #toastContainer {
+        top: 12px;
+        right: 16px;
+        left: 16px;
+        width: auto;
+        max-width: none;
+    }
+}
+/* AI prediction label */
+
+#predictionNote:not(:empty) {
+    display: inline-block;
+    margin: 4px auto 6px;
+    padding: 4px 14px;
+    border: 1px solid #e3d3ae;
+    border-radius: 999px;
+    background: #fffaf0;
+    color: #8a6d3b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+/* =========================================================
+   THEME SUPPORT (paste once, then add ONE theme block below it)
+   ========================================================= */
+
+:root {
+    --ok: #2f5d50;
+    --ok-dark: #264c42;
+    --warn: #8a6d3b;
+    --warn-dark: #735a31;
+    --badge-bg: #e8edf5;
+    --badge-line: #c7d2e4;
+    --accent-tint: #fffaf0;
+    --accent-line: #e3d3ae;
+}
+
+button[onclick*="completeToken"] {
+    background: var(--ok);
+    border-color: var(--ok);
+}
+
+button[onclick*="completeToken"]:hover {
+    background: var(--ok-dark);
+}
+
+button[onclick*="skipToken"] {
+    background: var(--warn);
+    border-color: var(--warn);
+}
+
+button[onclick*="skipToken"]:hover {
+    background: var(--warn-dark);
+}
+
+#status {
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-line);
+}
+
+#queueList .queue-item:first-of-type {
+    background: var(--accent-tint);
+}
+
+#predictionNote:not(:empty) {
+    background: var(--accent-tint);
+    border-color: var(--accent-line);
+    color: var(--warn);
+}
+
+.stat-card:nth-child(3) { border-top-color: var(--ok); }
+.stat-card:nth-child(4) { border-top-color: var(--muted); }
+/* =========================================================
+   THEME B+ : BURGUNDY & CREAM (improved)
+   Paste at the very end of style.css
+   ========================================================= */
+
+:root {
+    --navy: #5a1a2c;
+    --navy-soft: #7b2a40;
+    --slate: #5b4b50;
+    --ink: #2a1c20;
+    --muted: #8a777d;
+    --line: #ebe1dc;
+    --surface: #fffefc;
+    --page: #f8f3ee;
+    --tint: #fbf7f3;
+    --accent: #b8955a;
+    --danger: #7f1d1d;
+    --ok: #4b5563;
+    --ok-dark: #374151;
+    --warn: #9a6b2f;
+    --warn-dark: #7f5826;
+    --badge-bg: #f5e8eb;
+    --badge-line: #e3c9d0;
+    --accent-tint: #fcf6e8;
+    --accent-line: #e6d6ae;
+}
+
+
+/* ---------- Page background: soft paper texture ---------- */
+
+body {
+    background-color: var(--page);
+    background-image:
+        radial-gradient(circle at 10% 0%, rgba(184, 149, 90, 0.07) 0, transparent 35%),
+        radial-gradient(circle at 100% 100%, rgba(90, 26, 44, 0.05) 0, transparent 40%);
+    background-attachment: fixed;
+}
+
+::selection {
+    background: var(--navy);
+    color: #fff;
+}
+
+
+/* ---------- Header: deep wine with a brass line ---------- */
+
+header {
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.07) 0, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(184, 149, 90, 0.2) 0, transparent 45%),
+        linear-gradient(135deg, #4a1424, var(--navy) 55%, var(--navy-soft));
+    border-bottom: 3px solid var(--accent);
+    box-shadow: 0 6px 20px rgba(90, 26, 44, 0.18);
+}
+
+header h1 {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+header p {
+    color: #ecdcd6;
+}
+
+.logout-link {
+    border-color: rgba(236, 220, 214, 0.6);
+}
+
+.logout-link:hover {
+    background: #fffaf2;
+    color: var(--navy);
+}
+
+
+/* ---------- Cards: cream paper with a wine top edge ---------- */
+
+.queue-box,
+.token-box {
+    background: var(--surface);
+    border-color: var(--line);
+    border-top: 3px solid var(--navy);
+    box-shadow: 0 1px 2px rgba(60, 20, 30, 0.05),
+                0 10px 26px rgba(60, 20, 30, 0.07);
+}
+
+.queue-box:hover,
+.token-box:hover {
+    box-shadow: 0 2px 4px rgba(60, 20, 30, 0.06),
+                0 16px 34px rgba(60, 20, 30, 0.12);
+}
+
+.queue-box h2,
+.token-box h2 {
+    color: var(--navy);
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* ---------- Buttons ---------- */
+
+button {
+    background: linear-gradient(180deg, var(--navy-soft), var(--navy));
+    border-color: var(--navy);
+}
+
+button:hover {
+    background: linear-gradient(180deg, #8a3249, var(--navy-soft));
+    box-shadow: 0 6px 16px rgba(90, 26, 44, 0.3);
+}
+
+.queue-box a button,
+.staff-dashboard a button {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid #cdb7bd;
+}
+
+.queue-box a button:hover,
+.staff-dashboard a button:hover {
+    background: #f8eef0;
+    border-color: var(--navy);
+    box-shadow: none;
+}
+
+.clear-btn {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.clear-btn:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+button[onclick*="callNextToken"] {
