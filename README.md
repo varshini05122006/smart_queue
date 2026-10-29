@@ -13,8 +13,8 @@ A web-based queue management system that replaces physical waiting lines with di
 
 | Role  | Username / Email | Password |
 |-------|------------------|----------|
-| User  | YOUR-USER-LOGIN  | YOUR-USER-PASSWORD |
-| Staff | YOUR-STAFF-LOGIN | YOUR-STAFF-PASSWORD |
+| User  | user  | 1234|
+| Staff | staff | 1234 |
 
 ## Features
 
