@@ -4,8 +4,8 @@ A web-based queue management system that replaces physical waiting lines with di
 
 ## Live Demo
 
-- **Website:** https://YOUR-APP.onrender.com
-- **Source code:** https://github.com/YOUR-USERNAME/YOUR-REPO
+- **Website:** https://smart-queue-1-dlsh.onrender.com/login.php
+- **Source code:** https://github.com/varshini05122006/smart_queue
 
 > The demo runs on a free hosting plan. If it has been idle, the first page load may take up to a minute.
 
